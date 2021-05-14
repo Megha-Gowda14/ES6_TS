@@ -1,0 +1,180 @@
+1)const obj1={name:"PS"};
+console.log(obj1.name);
+//obj1={};
+
+2)var a=1;
+var b=2;
+if(a===1){
+ var a=10;
+    let b=20;
+    console.log(a);
+    console.log(b);
+}
+
+console.log(a);
+console.log(b);
+
+3)let order={
+ id: 122356,
+ title:"order1",
+ price: 122,   
+printorder:function(){
+  console.log(order);
+  
+},
+getPrice:function(){
+console.log(this.price);
+}
+}
+
+order.printorder();
+order.getPrice();
+
+var ob1=Object.assign(order);
+console.log(order);
+ob1.title="hairclip";
+ob1.price="34";
+console.log(ob1);
+
+4)let names=['tony','ivan','jerry'];
+
+let res=names.map(value =>{
+    return{
+        name:value,
+        len:value.length
+    }
+}
+)
+
+console.log(res);
+
+5)//5a
+
+/*let add=function(value=10,bonus=5)
+{
+    console.log(value+bonus);
+    
+};
+
+add();
+add(20);
+add(20,30);
+add(undefined,30);*/
+
+//5b
+
+/*let userFriends=function(username:string,...userfriends: (string[] | undefined)[]){
+
+for(let i in userfriends){
+    console.log(username +" and her friends:"+userfriends[i]);
+
+
+}
+}
+
+userFriends('PS',['sahana','sur','aish']);
+userFriends('varshini',['shetty','sur','aish']);*/
+
+//5c
+
+let printCapitalNames=function(...fivenames:string[]){
+
+    for(let i in fivenames){
+console.log(swapcase(fivenames[i]))
+    }
+}
+
+const swapcase=function swapcase(fivenames:string){
+
+    return fivenames.toUpperCase();
+}
+let fivenames=['joy','gin','salt','dog','cow'];
+printCapitalNames(...fivenames);
+
+
+6)let laptopmodel="dell inspiron 3520";
+let deskno=23;
+let ename="Varshini";
+console.log(`Greetings sysnet this is ${ename} and I have been facing some issues in the laptop.
+I have specified the model and deskno below kindly do the needful.
+deskno : ${deskno}
+laptopmodel : ${laptopmodel}
+Thanks and regards,
+Varshini.`);
+
+7)//7a
+/*let javascript =["Varshini","PS","Engineer","Female"];
+
+let[arr1,arr2,arr3,arr4]=javascript;
+console.log(arr3);
+*/
+
+//7b
+let organization={
+    name:"PS",
+    address:"15th street,sanjaynagar-560032"
+};
+
+let {name,address}=organization;
+console.log(address.substr(24));
+
+8)class account {
+    id: number;
+    name: string;
+    balance: number;
+    constructor(i: number, n: string, b: number) {
+    this.id = i;
+    this.name = n;
+    this.balance = b;
+    }
+    
+    checkBalance() {
+    return this.balance;
+    }
+    }
+    
+    class savingAccount extends account {
+    interest: number;
+    constructor(i: number, n: string, b: number, si: number) {
+    super(i, n, b);
+    this.interest = si;
+    }
+    
+    checkBalance() {
+    return this.balance + this.interest;
+    }
+    }
+    
+    class currentAccount extends account {
+    cashcredit: number;
+    constructor(i: number, n: string, b: number, cc: number) {
+    super(i, n, b);
+    this.cashcredit = cc;
+    }
+    
+    checkBalance() {
+    return this.balance - this.cashcredit;
+    }
+    }
+    
+    let a1 = new account(100, "mayu", 200);
+    let a2 = new savingAccount(101, "piu", 500, 20);
+    let a3 = new currentAccount(201, "Anu", 200, 50);
+    let a4 = new savingAccount(102, "Adu", 150, 100);
+    let a5 = new currentAccount(202, "Anushka", 350, 50);
+    console.log("Account Balance 1 : " + a1.checkBalance());
+    console.log("Account Balance 2 : " + a2.checkBalance());
+    console.log("Account Balance 3 : " + a3.checkBalance());
+    console.log("Account Balance 4 : " + a4.checkBalance());
+    console.log("Account Balance 5 : " + a5.checkBalance());
+    
+    // You can also console.log for each user i have done in single console.log
+    console.log(
+    "Total Balance : " +
+    a1.checkBalance() +
+    a2.checkBalance() +
+    a3.checkBalance() +
+    a4.checkBalance() +
+    a5.checkBalance()
+    );
+    
